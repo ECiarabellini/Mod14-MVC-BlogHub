@@ -12,15 +12,15 @@ Post.init(
             autoIncrement: true,
         },
         title: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         contents: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
-        created_by_username: {
-            type: DataTypes.STRING,
+        created_by: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'user',
