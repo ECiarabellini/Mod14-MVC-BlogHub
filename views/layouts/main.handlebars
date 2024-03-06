@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogHub</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="nav-link" id="link-home">Home</a>
+            <a class="nav-link" id="link-dashboard">Dashboard</a>
+
+        <!-- Display the logout link if the user is logged in, otherwise Login -->
+            {{#if logged_in}}
+            <a class="nav-link" id="logout">Logout</a>
+            {{else}}
+            <a class="nav-link" id="login">Login</a>
+            {{/if}}
+        </nav>        
+        <h1>
+        The Tech Blog
+        </h1>
+
+    </header>
+    <main class="container container-fluid mt-5">
+        {{{ body }}}
+    </main>
+    <footer>
+        
+    </footer>
+
+    <!-- Only include the logout script if the user is logged in -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+</body>
+
+</html>
