@@ -33,6 +33,8 @@ h1 {
 
 .nav-link {
     margin-right: 2%;
+    color: inherit; /* Inherit text color from parent */
+    text-decoration: none; /* Remove underline */
 }
 
 a:hover {
