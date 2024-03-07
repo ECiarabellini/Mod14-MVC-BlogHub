@@ -1,11 +1,11 @@
 <section class="card-blog-post">
-    <a href="/post/{{id}}">
+    <a href="/api/blogposts/{{id}}">
         <header class="card-header">
             <div>{{title}}</div>
-            <div>Posted by {{name}} on {{createdDate}}</div>
+            <div>Posted by {{user.name}} on {{createdDate}}</div>
         </header>
         <div>
             {{contents}}
         </div>
     </a>
-</section>
+</section> 

@@ -58,3 +58,15 @@ body {
 
 }
 
+#comment-form-box {
+    width: 90%; 
+    margin: 0 auto; /* Center the section horizontally */
+    text-align: center; /* Center the content horizontally within the container */
+}
+
+#comment-form {
+    padding-left: 8%;
+    display: inline-block; /* Ensure the form respects text-align property */
+    text-align: left;
+}
+

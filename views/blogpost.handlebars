@@ -1,0 +1,18 @@
+<section class="card-blog-post">
+    <header class="card-header">
+        <div>{{blogPost.title}}</div>
+        <div>Posted by {{blogPost.user.name}} on {{blogPost.createdDate}}</div>
+    </header>
+    <div>
+        {{blogPost.contents}}
+    </div>
+</section>
+
+<section class="card-blog-post" id="comment-form-box">
+    <header class="card-header"></header>
+    <form id="comment-form">
+        <label for="comment">Comment:</label><br>
+        <textarea id="comment" name="comment" rows="4" cols="80"></textarea>
+        <button class="submit">Submit</button>
+    </form>
+</section>

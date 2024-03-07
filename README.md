@@ -9,3 +9,6 @@ copied User.js and seeds folder entirely from ex 24 --> updated to include blog 
 --need to create model for comment which belongs to Post. simliar associations as post to user in model/index.js
 
 --need to finish login.handlebars to include sign up and do /js/login.js
+
+--need to finish comment submit functionality and add js to the submit button on
+the blogpost.handlebars button. Link JS script at the bottom
