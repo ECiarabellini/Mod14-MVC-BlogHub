@@ -33,11 +33,15 @@ h1 {
 
 .nav-link {
     margin-right: 2%;
+}
+
+a {
     color: inherit; /* Inherit text color from parent */
     text-decoration: none; /* Remove underline */
 }
 
-a:hover {
+
+.nav-link:hover {
     font-weight: 800;
 }
 
@@ -48,6 +52,7 @@ body {
 .card-blog-post {
     border: 5px solid var(--dark);    
     margin: 5%;
+    
 
 }
 
@@ -61,12 +66,12 @@ body {
 #comment-form-box {
     width: 90%; 
     margin: 0 auto; /* Center the section horizontally */
-    text-align: center; /* Center the content horizontally within the container */
 }
 
 #comment-form {
     padding-left: 8%;
-    display: inline-block; /* Ensure the form respects text-align property */
-    text-align: left;
 }
 
+textarea {
+    width: 80%; 
+}

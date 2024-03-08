@@ -2,7 +2,7 @@
     <a href="/api/blogposts/{{id}}">
         <header class="card-header">
             <div>{{title}}</div>
-            <div>Posted by {{user.name}} on {{createdDate}}</div>
+            <div>Posted by {{user.name}} on {{format_date createdDate}} at {{format_time createdDate}}</div>
         </header>
         <div>
             {{contents}}
