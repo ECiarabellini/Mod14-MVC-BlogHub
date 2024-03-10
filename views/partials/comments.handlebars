@@ -1,8 +1,8 @@
 <section class="card-blog-post">
     <header class="card-header">
-        <div>Posted by {{comment.user.name}} on {{format_date comment.createdDate}} at {{format_time comment.createdDate}}</div>
+        <div>Posted by {{user.name}} on {{format_date created_at}} at {{format_time created_at}}</div>
     </header>
     <div>
-        {{comment.contents}}
+        {{contents}}
     </div>
 </section>

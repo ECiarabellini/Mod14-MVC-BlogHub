@@ -1,5 +1,6 @@
 <section class="card-blog-post">
-    <a href="/api/blogposts/{{id}}">
+    {{!-- <a href="/api/blogposts/{{id}}"> --}}
+    <a href="/blogposts/{{id}}">
         <header class="card-header">
             <div>{{title}}</div>
             <div>Posted by {{user.name}} on {{format_date createdDate}} at {{format_time createdDate}}</div>

@@ -17,3 +17,5 @@ the blogpost.handlebars button. Link JS script at the bottom
 
 --need to display existing comments (if exist) on blog post page (http://localhost:3001/api/blogposts/:id)
 comment model?
+
+--need to get addComment.js up and running. Slice post ID from URL?
