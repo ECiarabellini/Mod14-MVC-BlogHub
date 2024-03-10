@@ -13,13 +13,11 @@
     <header>
         <nav>
             <a class="nav-link" href="/" id="link-home">Home</a>
-            {{!-- <a class="nav-link"  id="link-dashboard">Dashboard</a>
-            <a class="nav-link" id="logout">Logout</a>
-            <a class="nav-link" href="/login" id="login">Login</a> --}}
+
         <!-- Display the logout & dashboard links if the user is logged in, otherwise Login -->
             {{#if logged_in}}            
-            <a class="nav-link"  id="link-dashboard">Dashboard</a>
-            <a class="nav-link" id="logout">Logout</a>
+            <a class="nav-link"  id="link-dashboard" href="/dashboard">Dashboard</a>
+            <a class="nav-link" id="logout" >Logout</a>
             {{else}}
             <a class="nav-link" href="/login" id="login">Login</a>
             {{/if}}
@@ -29,7 +27,7 @@
         </h1>
 
     </header>
-    <main class="container container-fluid mt-5">
+    <main>
         {{{ body }}}
     </main>
     <footer>

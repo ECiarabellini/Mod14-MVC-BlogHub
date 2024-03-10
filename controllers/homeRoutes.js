@@ -1,26 +1,6 @@
 const router = require('express').Router();
-const { User, Post} = require('../models');
+const { User, Post, Comment} = require('../models');
 const withAuth = require('../utils/auth');
-
-// Prevent non logged in users from viewing the homepage
-// router.get('/', withAuth, async (req, res) => {
-//   try {
-//     const userData = await User.findAll({
-//       attributes: { exclude: ['password'] },
-//       order: [['name', 'ASC']],
-//     });
-
-//     const users = userData.map((project) => project.get({ plain: true }));
-
-//     res.render('homepage', {
-//       users,
-//       // Pass the logged in flag to the template
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 //homepage
 router.get('/', async (req, res) => {
@@ -43,15 +23,79 @@ router.get('/', async (req, res) => {
   }
 });
 
-
+//login page
 router.get('/login', (req, res) => {
-  // If a session exists, redirect the request to the homepage
+  // If a session exists, redirect to the dashboard
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect('/dashboard');
     return;
   }
-
   res.render('login');
 });
+
+
+//one post detail page including comments
+router.get('/blogpost/:id', async (req, res) => {
+  // router.get('/:id', withAuth, async (req, res) => {     //removing withAuth for testing. Add back later!
+  try {
+    const postID = req.params.id;
+    const blogpostData = await Post.findByPk(postID, {
+      include: [
+        {
+          model: Comment,
+          attributes: ['id', 'contents', 'created_by', 'created_at'], // Include necessary attributes of Comment
+          include: [
+              {
+                  model: User,
+                  attributes: ['name'], // Include the 'name' field from the 'Users' table
+              },
+          ],
+        },
+        {
+            model: User,
+            attributes: ['name'], // Include the 'name' field from the 'Users' table
+        },
+      ],
+    });    
+    
+    if (!blogpostData) {
+      return res.status(404).json('BlogpostData not found!');
+    }
+    const blogPost = blogpostData.get({ plain: true });
+    
+    // Send over the 'loggedIn' session variable to the 'blogpost' template
+    res.render('blogpost', { blogPost, logged_in: req.session.logged_in });
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  }
+});
+
+
+// dashboard page
+router.get('/dashboard', async (req, res) => {
+// router.get('/dashboard', withAuth, async (req, res) => { ///!!!!!!!!!!!!uncomment when done testing
+  console.log('---------------------req.session.user_id: ', req.session.user_id);
+  const userPosts = await Post.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+      where: {
+        created_by: req.session.user_id,   //comment out for testing in insomnia !!!!!!!!!!!
+        // created_by: req.body.created_by   //uncomment for testing in insomnia !!!!!
+      }
+    });
+  
+  const posts = userPosts.map((post) => post.get({ plain: true }));
+  console.log('------------------------------------dashbord posts: ', posts);
+
+  res.render('dashboard', { posts, logged_in: req.session.logged_in });
+
+
+});
+
 
 module.exports = router;

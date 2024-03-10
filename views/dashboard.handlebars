@@ -1,0 +1,24 @@
+{{#if posts}}
+    <div>Your Blogposts:</div>
+
+    <!-- For each post, the post-details partial is used to render the post data -->
+    {{#each posts as |post|}}
+    {{> blogPostDetails}}
+    {{/each}}
+
+{{/if}}
+
+<section class="card-blog-post" id="post-form-box">
+    <header class="card-header"></header>
+    <form id="new-post-form">
+        <h4>New Blogpost</h4>
+        <label for="post-title">Title </label><br>
+        <textarea id="post-title" name="post-title" rows="1" ></textarea>
+
+        <label for="post-content">Blogpost Content</label><br>
+        <textarea id="post-content" name="post-content" rows="3" ></textarea>
+        <button id="submitPost" type="submit">Submit</button>
+    </form>
+</section>
+
+<script src="./js/createPost.js"></script>
