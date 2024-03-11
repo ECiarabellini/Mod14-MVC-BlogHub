@@ -18,8 +18,8 @@ router.get('/', async (req, res) => {
     );
     res.render('homepage', { posts, logged_in: req.session.logged_in });
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+      console.log(err);
+      res.status(500).json(err);
   }
 });
 
@@ -35,8 +35,8 @@ router.get('/login', (req, res) => {
 
 
 //one post detail page including comments
-router.get('/blogpost/:id', async (req, res) => {
-  // router.get('/:id', withAuth, async (req, res) => {     //removing withAuth for testing. Add back later!
+//router.get('/blogpost/:id', async (req, res) => { ///!!!!!!!!!!!!use for testing in Insomnia withoutAuth
+router.get('/blogpost/:id', withAuth, async (req, res) => {     //removing withAuth for testing. Add back later!
   try {
     const postID = req.params.id;
     const blogpostData = await Post.findByPk(postID, {
@@ -73,9 +73,8 @@ router.get('/blogpost/:id', async (req, res) => {
 
 
 // dashboard page
-router.get('/dashboard', async (req, res) => {
-// router.get('/dashboard', withAuth, async (req, res) => { ///!!!!!!!!!!!!uncomment when done testing
-  console.log('---------------------req.session.user_id: ', req.session.user_id);
+//router.get('/dashboard', async (req, res) => {    ///!!!!!!!!!!!!use for testing in Insomnia withoutAuth
+router.get('/dashboard', withAuth, async (req, res) => { 
   const userPosts = await Post.findAll({
       include: [
         {
@@ -90,8 +89,6 @@ router.get('/dashboard', async (req, res) => {
     });
   
   const posts = userPosts.map((post) => post.get({ plain: true }));
-  console.log('------------------------------------dashbord posts: ', posts);
-
   res.render('dashboard', { posts, logged_in: req.session.logged_in });
 
 
