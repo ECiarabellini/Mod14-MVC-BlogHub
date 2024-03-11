@@ -10,11 +10,13 @@ Future development would include:
 
 - Allowing a user to delete or update posts/comments
 - Improved styling
+- Add user input validation and improved error messages
 
 ## Installation
 
 - Repo: [GitHub Repo](https://github.com/ECiarabellini/Mod14-MVC-BlogHub)
-- Deployed to Heroku: [Heroku page]()
+- Deployed to Heroku: [Heroku page](https://thawing-mesa-34482-e04974e7bb61.herokuapp.com/)
+- Image of Dashboard when user logged in: ![screenshot](screenshot.png)
 
 ## Usage
 
