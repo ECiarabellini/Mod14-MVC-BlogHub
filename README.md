@@ -1,21 +1,38 @@
 # Mod14-MVC-BlogHub
 
+## Description
+
 MSU Coding Bootcamp Module 14 Challenge: Tech Blog
 
-used files from ex 24
-copied User.js and seeds folder entirely from ex 24 --> updated to include blog posts
+The purpose of this project was to build from scratch a CMS-style blog site similar to a Wordpress site, where users can publish blog posts and comment on other users' posts as well. This was built from scratch, but using class exercises as a guide, then deployed to Heroku. This app follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
---need to remove created date field from Post
---need to create model for comment which belongs to Post. simliar associations as post to user in model/index.js
+Future development would include:
 
---need to finish login.handlebars to include sign up and do /js/login.js
+- Allowing a user to delete or update posts/comments
+- Improved styling
 
---need to finish comment submit functionality and add js to the submit button on
-the blogpost.handlebars button. Link JS script at the bottom
+## Installation
 
---make sure every endpoint is sending the loggedin status... might be causing the header links to malfunction
+- Repo: [GitHub Repo](https://github.com/ECiarabellini/Mod14-MVC-BlogHub)
+- Deployed to Heroku: [Heroku page]()
 
---need to display existing comments (if exist) on blog post page (http://localhost:3001/api/blogposts/:id)
-comment model?
+## Usage
 
---need to get addComment.js up and running. Slice post ID from URL?
+To run:
+
+- Run 'npm install' from the command line
+- Open mysql. Type source db/schema.sql. Exit mysql.
+- Run 'node seeds/index.js' from the command line to seed the database
+- Run 'npm start' to start the server.
+
+## Credits
+
+- ChatGPT helped me to create the POST API route for Products, which I then updated to also create Tags and Categories.
+- Several API routes were mirrored from module 13 exercise 24
+- I copied models/User.js and seeds folder entirely from module 13 exercise 24 then updated to include blog posts.
+- I copied the login and signup form files and related routes from module 14 exercize 28.
+- Many other files were direct copy/paste from various exercises, updating and revising them to use the variable names that I required for this project.
+
+## License
+
+MIT License
